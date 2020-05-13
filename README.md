@@ -40,6 +40,8 @@ double check postman evoronment with serve url
 ## Start Testing
 
 - GET Organization
+<pre>
 curl --location --request GET 'http://127.0.0.1:8001/api/v1/organization?page=3&limit=10'
+</pre>
 
 - GET Users
