@@ -34,7 +34,9 @@ You can now access the server at http://localhost:8000
 
  "swivel.postman_collection.json" and "swivel-local.postman_environment.json" files are import to post man
  
- ### double check postman evoronment with serve url 
+double check postman evoronment with serve url 
  
  
-## Check API's 
+## Start Testing
+
+- GET organization
