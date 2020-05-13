@@ -29,3 +29,6 @@ Start the local development server
     php artisan serve
 
 You can now access the server at http://localhost:8000
+
+
+Create Copy .env.example file and rename as .env
