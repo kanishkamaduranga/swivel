@@ -178,3 +178,70 @@ RESPONSE :-
     }
 }
 </pre>
+
+-- POST Search 
+<pre>
+ REQUEST :- curl --location --request POST 'http://127.0.0.1:8001/api/v1/search?type=ticket&field=tags&keyword=Nevada' 
+</pre>
+
+<pre>
+RESPONSE :-
+status": 200,
+    "description": "OK",
+    "data": {
+        "87db32c5-76a3-4069-954c-7d59c6c21de0": {
+            "_id": "87db32c5-76a3-4069-954c-7d59c6c21de0",
+            "url": "http://initech.tokoin.io.com/api/v2/tickets/87db32c5-76a3-4069-954c-7d59c6c21de0.json",
+            "external_id": "1c61056c-a5ad-478a-9fd6-38889c3cd728",
+            "created_at": "2016-07-06T11:16:50 -10:00",
+            "type": "problem",
+            "subject": "A Problem in Morocco",
+            "description": "Sit culpa non magna anim. Ea velit qui nostrud eiusmod laboris dolor adipisicing quis deserunt elit amet.",
+            "priority": "urgent",
+            "status": "solved",
+            "submitter_id": 14,
+            "assignee_id": 7,
+            "organization_id": 118,
+            "tags": [
+                "Texas",
+                "Nevada",
+                "Oregon",
+                "Arizona"
+            ],
+            "has_incidents": true,
+            "due_at": "2016-08-19T07:40:17 -10:00",
+            "via": "voice",
+            "organization_name": "Limozen",
+            "submitter_name": "Shepherd Joseph",
+            "assignee_name": "Lou Schmidt"
+        },
+        "fc5a8a70-3814-4b17-a6e9-583936fca909": {
+            "_id": "fc5a8a70-3814-4b17-a6e9-583936fca909",
+            "url": "http://initech.tokoin.io.com/api/v2/tickets/fc5a8a70-3814-4b17-a6e9-583936fca909.json",
+            "external_id": "e8cab26b-f3b9-4016-875c-b0d9a258761b",
+            "created_at": "2016-07-08T07:57:15 -10:00",
+            "type": "problem",
+            "subject": "A Nuisance in Kiribati",
+            "description": "Ipsum reprehenderit non ea officia labore aute. Qui sit aliquip ipsum nostrud anim qui pariatur ut anim aliqua non aliqua.",
+            "priority": "high",
+            "status": "open",
+            "submitter_id": 1,
+            "assignee_id": 19,
+            "organization_id": 120,
+            "tags": [
+                "Minnesota",
+                "New Jersey",
+                "Texas",
+                "Nevada"
+            ],
+            "has_incidents": true,
+            "via": "voice",
+            "organization_name": "Andershun",
+            "submitter_name": "Francisca Rasmussen",
+            "assignee_name": "Francis Rodrigüez"
+        },
+        .......................
+        
+        }}
+</pre>
+
