@@ -1,6 +1,13 @@
 # swivel
 
-#this is REST API
+#this is Swivel test 
 
-Json files are located in "~/storage/" 
 
+# Getting started
+
+## Installation
+
+Clone the repository
+git clone https://github.com/kanishkamaduranga/swivel.git 
+
+Switch to the repo folder
