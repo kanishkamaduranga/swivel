@@ -30,5 +30,6 @@ Start the local development server
 
 You can now access the server at http://localhost:8000
 
+## Setup Postman Collection
 
-Create Copy .env.example file and rename as .env
+
