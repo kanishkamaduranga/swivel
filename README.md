@@ -131,3 +131,50 @@ RESPONSE :-
 }
 </pre>
 
+- GET Tickets
+<pre>
+REQUEST :-     curl --location --request GET 'http://127.0.0.1:8001/api/v1/ticket?page=10&limit=10'
+</pre>
+<pre>
+RESPONSE :-  
+
+{
+    "status": 200,
+    "description": "OK",
+    "data": {
+        "current_page": 10,
+        "data": {
+            "90": {
+                "_id": "6e77bbf1-5fc7-4f41-aeb1-74f8730f974b",
+                "url": "http://initech.tokoin.io.com/api/v2/tickets/6e77bbf1-5fc7-4f41-aeb1-74f8730f974b.json",
+                "external_id": "3ce8b7f5-952b-485a-a6c3-8d5259d3850a",
+                "created_at": "2016-06-24T07:57:38 -10:00",
+                "type": "problem",
+                "subject": "A Problem in Guatemala",
+                "description": "Ex labore dolor commodo magna ex pariatur sunt amet ad quis duis laborum. Fugiat anim non esse eu sunt elit.",
+                "priority": "high",
+                "status": "open",
+                "submitter_id": 49,
+                "assignee_id": 26,
+                "organization_id": 119,
+                "tags": [
+                    "Texas",
+                    "Nevada",
+                    "Oregon",
+                    "Arizona"
+                ],
+                "has_incidents": true,
+                "due_at": "2016-08-01T11:20:58 -10:00",
+                "via": "voice"
+            },
+            
+            .................................................
+        },
+        "from": 91,
+        "to": 100,
+        "last_page": 20,
+        "pre_page": 10,
+        "total": 200
+    }
+}
+</pre>
