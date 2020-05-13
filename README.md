@@ -180,6 +180,13 @@ RESPONSE :-
 </pre>
 
 -- POST Search 
+
+<pre>
+    ### paramiters 
+</pre>
+    ----"type" must be { organization , ticket, user},
+    ----"field"= is existing field and "any"  for search in all fields",
+    ----"keyword" is search key , it can de empty
 <pre>
  REQUEST :- curl --location --request POST 'http://127.0.0.1:8001/api/v1/search?type=ticket&field=tags&keyword=Nevada' 
 </pre>
