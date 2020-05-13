@@ -1,6 +1,6 @@
 # swivel
 
-# this is Swivel test 
+REST API 
 
 
 # Getting started
