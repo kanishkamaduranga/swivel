@@ -34,6 +34,24 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "get Organizations - Fields",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}v1/fields/organizations",
+							"host": [
+								"{{url}}v1"
+							],
+							"path": [
+								"fields",
+								"organizations"
+							]
+						}
+					},
+					"response": []
 				}
 			],
 			"protocolProfileBehavior": {}
@@ -47,7 +65,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{url}}v1/user?",
+							"raw": "{{url}}v1/user?page=3&limit=10",
 							"host": [
 								"{{url}}v1"
 							],
@@ -56,9 +74,31 @@
 							],
 							"query": [
 								{
-									"key": "",
-									"value": null
+									"key": "page",
+									"value": "3"
+								},
+								{
+									"key": "limit",
+									"value": "10"
 								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ger User - Fields",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}v1/fields/users",
+							"host": [
+								"{{url}}v1"
+							],
+							"path": [
+								"fields",
+								"users"
 							]
 						}
 					},
@@ -96,6 +136,24 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "get Tickets - Fields",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}v1/fields/tickets",
+							"host": [
+								"{{url}}v1"
+							],
+							"path": [
+								"fields",
+								"tickets"
+							]
+						}
+					},
+					"response": []
 				}
 			],
 			"protocolProfileBehavior": {}
@@ -106,7 +164,7 @@
 				"method": "POST",
 				"header": [],
 				"url": {
-					"raw": "{{url}}v1/search?type=ticket&field=tags&keyword=Nevada",
+					"raw": "{{url}}v1/search?type=organizations&field=name&keyword=Hotcâkes",
 					"host": [
 						"{{url}}v1"
 					],
@@ -116,19 +174,36 @@
 					"query": [
 						{
 							"key": "type",
-							"value": "ticket"
+							"value": "organizations"
 						},
 						{
 							"key": "field",
-							"value": "tags"
+							"value": "name"
 						},
 						{
 							"key": "keyword",
-							"value": "Nevada"
+							"value": "Hotcâkes"
 						}
 					]
 				},
-				"description": "\"type\" must be { organization , ticket, user},\n\"field\"= is existing field and \"any\"  for search in all fields\",\n\"keyword\" is search key , it can de empty"
+				"description": "\"type\" must be { organizations , tickets, users},\n\"field\"= is existing field and \"any\"  for search in all fields\",\n\"keyword\" is search key , it can de empty"
+			},
+			"response": []
+		},
+		{
+			"name": "Main type list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}v1/main_types",
+					"host": [
+						"{{url}}v1"
+					],
+					"path": [
+						"main_types"
+					]
+				}
 			},
 			"response": []
 		}
