@@ -7,7 +7,7 @@ class Ticket extends JsonModel
 {
     protected $file_name = "tickets.json";
 
-    public $fillable = [
+    /*public $fillable = [
         '_id',
         'url',
         'external_id',
@@ -24,5 +24,5 @@ class Ticket extends JsonModel
         'has_incidents',
         'due_at',
         'via'
-    ];
+    ];*/
 }

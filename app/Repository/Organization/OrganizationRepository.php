@@ -23,6 +23,12 @@ class OrganizationRepository implements OrganizationInterface
         $this->organization_model = $organization_model;
     }
 
+    public function getFields()
+    {
+
+        return $this->organization_model->getFields();
+    }
+
     /**
      * @param int $page
      * @param int $limit

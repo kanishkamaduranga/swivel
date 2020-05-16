@@ -35,6 +35,27 @@ class SearchService
         $this->user_interface = $user_interface;
     }
 
+    public function getFields( $type)
+    {
+        switch ( $type){
+            case 'organizations' :
+
+                return $this->organization_interface->getFields();
+                break;
+            case 'tickets':
+
+                return $this->ticket_interface->getFields();
+                break;
+            case 'users':
+
+                return $this->user_interface->getFields();
+                break;
+        }
+    }
+
+    /** return mail types
+     * @return string[]
+     */
     public function mainTypes()
     {
 
@@ -45,20 +66,24 @@ class SearchService
         ];
     }
 
-    public function search( $inputs){
+    /**
+     * @param $inputs
+     * @return int[]|mixed
+     */
+    public function search($inputs){
 
         try{
 
             switch (trim($inputs['type'])){
-                case 'organization' :
+                case 'organizations' :
 
                     $data =  $this->organizationSearch(trim($inputs['field']), $inputs['keyword']);
                     break;
-                case 'ticket':
+                case 'tickets':
 
                     $data = $this->ticketSearch(trim($inputs['field']), $inputs['keyword']);
                     break;
-                case 'user':
+                case 'users':
 
                     $data = $this->userSearch(trim($inputs['field']), $inputs['keyword']);
                     break;
@@ -70,7 +95,12 @@ class SearchService
         }
     }
 
-    public function ticketSearch( $field, $keyword)
+    /**
+     * @param $field
+     * @param $keyword
+     * @return mixed
+     */
+    public function ticketSearch($field, $keyword)
     {
         $result = $this->ticket_interface->search( $field, $keyword);
 
@@ -94,7 +124,12 @@ class SearchService
         }
     }
 
-    public function userSearch( $field, $keyword)
+    /**
+     * @param $field
+     * @param $keyword
+     * @return mixed
+     */
+    public function userSearch($field, $keyword)
     {
         $result = $this->user_interface->search( $field, $keyword);
 
@@ -116,7 +151,12 @@ class SearchService
         }
     }
 
-    public function organizationSearch( $field, $keyword){
+    /**
+     * @param $field
+     * @param $keyword
+     * @return mixed
+     */
+    public function organizationSearch($field, $keyword){
 
         $result = $this->organization_interface->search( $field, $keyword);
 

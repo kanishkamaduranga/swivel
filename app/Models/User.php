@@ -7,7 +7,7 @@ class User extends JsonModel
 {
     protected $file_name = 'users.json';
 
-    public $fillable = [
+    /*public $fillable = [
         '_id',
         'url',
         'external_id',
@@ -27,6 +27,6 @@ class User extends JsonModel
         'tags',
         'suspended',
         'role',
-    ];
+    ];*/
 
 }

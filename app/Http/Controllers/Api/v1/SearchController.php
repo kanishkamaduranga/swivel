@@ -44,6 +44,24 @@ class SearchController extends ApiController
         $this->user_interface = $user_interface;
     }
 
+    /**
+     * @param $main_type
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function fields($main_type)
+    {
+        try{
+
+            return $this->returnSuccess( $this->search_service->getFields($main_type));
+
+        }catch (\Exception $exception){
+            return $this->returnError();
+        }
+    }
+
+    /**
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function main()
     {
         try{
@@ -64,7 +82,7 @@ class SearchController extends ApiController
 
             $inputs = $request->all();
             $rule =[
-                "type" => 'required|in:organization,ticket,user',
+                "type" => 'required|in:organizations,tickets,users',
                 "field" => 'required',
             ];
             $validator = Validator::make($inputs, $rule);

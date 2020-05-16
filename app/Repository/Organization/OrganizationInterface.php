@@ -19,4 +19,6 @@ interface OrganizationInterface
     public function search($field, $keyword);
 
     public function getOrganizationById( $id);
+
+    public function getFields();
 }

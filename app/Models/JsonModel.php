@@ -33,10 +33,34 @@ class JsonModel
     /**
      * JsonModel constructor.
      */
+
     public function __construct()
     {
         $this->storage_path = storage_path();
         $this->collection_obj = $this->collection();
+        $this->fillable = $this->getFillable();
+    }
+
+    public function getFillable()
+    {
+        return array_keys( $this->getFields());
+    }
+
+    /**
+     * @return array
+     */
+    public function getFields()
+    {
+        $data = $this->all();
+        $field_list = [];
+
+        foreach ($data[0] as $key => $first_data){
+            try {
+                $field_list[$key] = trim(ucwords(str_replace('_', ' ', $key)));
+            }catch (\Exception $exception){}
+        }
+
+        return $field_list;
     }
 
     public function validateFields( $field)
@@ -164,6 +188,5 @@ class JsonModel
     {
         return file_get_contents($this->storage_path.'/'.$this->file_name);
     }
-
 
 }

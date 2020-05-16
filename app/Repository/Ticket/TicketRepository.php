@@ -21,6 +21,12 @@ class TicketRepository implements TicketInterface
         $this->ticket = $ticket;
     }
 
+    public function getFields()
+    {
+
+        return $this->ticket->getFields();
+    }
+
     public function paginate( )
     {
         return $this->ticket->paginate( );

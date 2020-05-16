@@ -22,6 +22,11 @@ class UserRepository implements UserInterface
         $this->user = $user;
     }
 
+    public function getFields(){
+
+        return $this->user->getFields();
+    }
+
     public function paginate( )
     {
         return $this->user->paginate( );

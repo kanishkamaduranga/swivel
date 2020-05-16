@@ -21,4 +21,6 @@ interface TicketInterface
     public function getTicketsByUserId( $user_id, $type = 'assignee');
 
     public function search( $field, $keyword);
+
+    public function getFields();
 }

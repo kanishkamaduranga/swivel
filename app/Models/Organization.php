@@ -9,7 +9,7 @@ class Organization extends JsonModel
 
     protected $file_name = "organizations.json";
 
-    public $fillable = [
+    /*public $fillable = [
         '_id',
         'url',
         'external_id',
@@ -19,6 +19,6 @@ class Organization extends JsonModel
         'details',
         'shared_tickets',
         'tags'
-    ];
+    ];*/
 
 }

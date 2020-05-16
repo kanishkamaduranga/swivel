@@ -18,7 +18,8 @@ Route::group(['prefix' => 'v1', 'namespace' => 'Api\v1'], function () {
 
     Route::post('/search', 'SearchController@index')->name('search');
 
-    Route::get('/main', 'SearchController@main')->name('main.list');
+    Route::get('/main_types', 'SearchController@main')->name('main.list');
+    Route::get('/fields/{main_type}', 'SearchController@fields')->name('fields.list');
 
     Route::get('/ticket', 'TicketController@index')->name('ticket.list');
     Route::get('/user', 'UserController@index')->name('user.list');

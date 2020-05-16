@@ -21,4 +21,6 @@ interface UserInterface
     public function getUserBYId( $id);
 
     public function search( $field, $keyword);
+
+    public function getFields();
 }
