@@ -35,6 +35,16 @@ class SearchService
         $this->user_interface = $user_interface;
     }
 
+    public function mainTypes()
+    {
+
+        return [
+            'organizations' => 'Organizations',
+            'tickets'   => 'Tickets',
+            'users'     => 'Users'
+        ];
+    }
+
     public function search( $inputs){
 
         try{

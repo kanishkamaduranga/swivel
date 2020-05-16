@@ -44,8 +44,22 @@ class SearchController extends ApiController
         $this->user_interface = $user_interface;
     }
 
-    public function index( Request $request){
+    public function main()
+    {
+        try{
 
+            return $this->returnSuccess($this->search_service->mainTypes());
+        }catch (\Exception $exception){
+            return $this->returnError();
+        }
+    }
+
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function index(Request $request)
+    {
         try {
 
             $inputs = $request->all();
