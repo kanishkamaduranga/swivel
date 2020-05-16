@@ -82,7 +82,7 @@ class SearchController extends ApiController
 
             $inputs = $request->all();
             $rule =[
-                "type" => 'required|in:organizations,tickets,users',
+                "main_types" => 'required|in:organizations,tickets,users',
                 "field" => 'required',
             ];
             $validator = Validator::make($inputs, $rule);

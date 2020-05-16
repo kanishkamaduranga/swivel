@@ -74,7 +74,7 @@ class SearchService
 
         try{
 
-            switch (trim($inputs['type'])){
+            switch (trim($inputs['main_types'])){
                 case 'organizations' :
 
                     $data =  $this->organizationSearch(trim($inputs['field']), $inputs['keyword']);
