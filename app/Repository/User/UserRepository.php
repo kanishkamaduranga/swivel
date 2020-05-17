@@ -56,7 +56,7 @@ class UserRepository implements UserInterface
 
             try {
                 if ($organization_id == $value['organization_id']) {
-                    $return_list[$value['_id']] = $value['name'];
+                    $return_list[] = $value['name'];
                 }
             }catch (\Exception $exception){
                 Log::error([$exception->getMessage(), $this]);
@@ -84,7 +84,7 @@ class UserRepository implements UserInterface
                 }
 
                 if($status){
-                    $result_list[$data_record_id] = $data_record;
+                    $result_list[] = $data_record;
                 }
             }
 

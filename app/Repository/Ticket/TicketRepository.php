@@ -43,7 +43,7 @@ class TicketRepository implements TicketInterface
 
             try {
                 if ($organization_id == $value['organization_id']) {
-                    $return_list[$value['_id']] = $value['subject'];
+                    $return_list[] = $value['subject'];
                 }
             }catch (\Exception $exception){
                 Log::info($exception);
@@ -59,9 +59,9 @@ class TicketRepository implements TicketInterface
 
             try {
                 if ($type == 'assignee' || $user_id == $value['assignee_id']) {
-                    $return_list[$value['_id']] = $value['subject'];
+                    $return_list[] = $value['subject'];
                 }else if ($type == 'submitted' || $user_id == $value['submitter_id']) {
-                    $return_list[$value['_id']] = $value['subject'];
+                    $return_list[] = $value['subject'];
                 }
             }catch (\Exception $exception){
                 Log::error([$exception->getMessage(), $this]);
@@ -89,7 +89,7 @@ class TicketRepository implements TicketInterface
                 }
 
                 if($status){
-                    $result_list[$data_record_id] = $data_record;
+                    $result_list[] = $data_record;
                 }
             }
 

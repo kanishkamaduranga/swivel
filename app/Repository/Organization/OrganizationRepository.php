@@ -66,7 +66,7 @@ class OrganizationRepository implements OrganizationInterface
                 }
 
                 if($status){
-                    $result_list[$data_record_id] = $data_record;
+                    $result_list[] = $data_record;
                 }
             }
 

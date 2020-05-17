@@ -140,9 +140,10 @@ class SearchService
         }else{
             foreach ($result as $key => $vales){
                 try{
+                    $id = $vales['_id'];
                     $result[$key]['organization_name'] =  $this->organization_interface->getOrganizationById($vales['organization_id']);
-                    $result[$key]['assignee_ticket'] =  $this->ticket_interface->getTicketsByUserId($key, 'assignee');
-                    $result[$key]['submitted_ticket'] =  $this->ticket_interface->getTicketsByUserId( $key, 'submitted');
+                    $result[$key]['assignee_ticket'] =  $this->ticket_interface->getTicketsByUserId($id, 'assignee');
+                    $result[$key]['submitted_ticket'] =  $this->ticket_interface->getTicketsByUserId( $id, 'submitted');
                 }catch (\Exception $exception){
                     Log::error([$exception->getMessage(), $this]);
                 }
@@ -167,8 +168,9 @@ class SearchService
         }else{
             foreach ($result as $key => $vales){
                 try{
-                    $result[$key]['ticket'] = $this->ticket_interface->getTicketByOrganizationId($key);
-                    $result[$key]['users'] =  $this->user_interface->getUsersByOrganizationId($key);
+                    $id = $vales['_id'];
+                    $result[$key]['ticket'] = $this->ticket_interface->getTicketByOrganizationId($id);
+                    $result[$key]['users'] =  $this->user_interface->getUsersByOrganizationId($id);
                 }catch (\Exception $exception){
                     Log::error([$exception->getMessage(), $this]);
                 }
