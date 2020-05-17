@@ -109,18 +109,41 @@ class SearchService
             return $result;
 
         }else {
-            foreach ($result as $key => $vales) {
-                try {
-                    $result[$key]['organization_name'] = $this->organization_interface->getOrganizationById($vales['organization_id']);
-                    $result[$key]['submitter_name'] = $this->user_interface->getUserBYId($vales['submitter_id']);
-                    $result[$key]['assignee_name'] = $this->user_interface->getUserBYId($vales['assignee_id']);
+            $fields = $this->ticket_interface->getFields();
+            $return_array = [];
 
+            foreach ($result as $key => $vales) {
+                $temp_array = [];
+                try {
+
+                    foreach ($vales as $k => $val )
+                    {
+                        $temp_array[$k] = [
+                            'label' => $fields[$k],
+                            'value' => $val
+                        ];
+                    }
+
+                    $temp_array['organization_name'] = [
+                        'label' => 'Organization Name',
+                        'value' => $this->organization_interface->getOrganizationById($vales['organization_id'])
+                    ];
+                    $temp_array['submitter_name'] = [
+                        'label' => 'Submitter Name',
+                        'value' => $this->user_interface->getUserBYId($vales['submitter_id'])
+                    ];
+                    $temp_array['assignee_name'] = [
+                        'label' => 'Assignee Name',
+                        'value' => $this->user_interface->getUserBYId($vales['assignee_id'])
+                    ];
+
+                    $return_array[] = $temp_array;
 
                 }catch (\Exception $exception){
                     Log::error([$exception->getMessage(), $this]);
                 }
             }
-            return $result;
+            return $return_array;
         }
     }
 
@@ -138,17 +161,40 @@ class SearchService
             return $result;
 
         }else{
+            $fields = $this->user_interface->getFields();
+            $return_array = [];
+
             foreach ($result as $key => $vales){
                 try{
+                    foreach ($vales as $k => $val )
+                    {
+                        $temp_array[$k] = [
+                            'label' => $fields[$k],
+                            'value' => $val
+                        ];
+                    }
+
                     $id = $vales['_id'];
-                    $result[$key]['organization_name'] =  $this->organization_interface->getOrganizationById($vales['organization_id']);
-                    $result[$key]['assignee_ticket'] =  $this->ticket_interface->getTicketsByUserId($id, 'assignee');
-                    $result[$key]['submitted_ticket'] =  $this->ticket_interface->getTicketsByUserId( $id, 'submitted');
+                    $temp_array['organization_name'] = [
+                        'label' => 'Organization Name',
+                        'value' => $this->organization_interface->getOrganizationById($vales['organization_id'])
+                    ];
+                    $temp_array['assignee_ticket'] = [
+                        'label' => 'Assignee Name',
+                        'value' => $this->ticket_interface->getTicketsByUserId($id, 'assignee')
+                    ];
+                    $temp_array['submitted_ticket'] = [
+                        'label' => 'Submitted Name',
+                        'value' => $this->ticket_interface->getTicketsByUserId($id, 'submitted')
+                    ];
+
+                    $return_array[] = $temp_array;
+
                 }catch (\Exception $exception){
                     Log::error([$exception->getMessage(), $this]);
                 }
             }
-            return $result;
+            return $return_array;
         }
     }
 
@@ -166,16 +212,35 @@ class SearchService
             return $result;
 
         }else{
+            $fields = $this->organization_interface->getFields();
+            $return_array = [];
             foreach ($result as $key => $vales){
                 try{
+                    foreach ($vales as $k => $val )
+                    {
+                        $temp_array[$k] = [
+                            'label' => $fields[$k],
+                            'value' => $val
+                        ];
+                    }
                     $id = $vales['_id'];
-                    $result[$key]['ticket'] = $this->ticket_interface->getTicketByOrganizationId($id);
-                    $result[$key]['users'] =  $this->user_interface->getUsersByOrganizationId($id);
+
+                    $temp_array['ticket'] = [
+                        'label' => 'Ticket',
+                        'value' => $this->ticket_interface->getTicketByOrganizationId($id)
+                    ];
+                    $temp_array['users'] = [
+                        'label' => 'Users',
+                        'value' => $this->user_interface->getUsersByOrganizationId($id)
+                    ];
+
+                    $return_array[] = $temp_array;
+
                 }catch (\Exception $exception){
                     Log::error([$exception->getMessage(), $this]);
                 }
             }
-            return $result;
+            return $return_array;
         }
     }
 }
